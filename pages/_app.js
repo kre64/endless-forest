@@ -1,7 +1,16 @@
-import '@styles/globals.css'
+import "@styles/globals.css";
+import 'fontsource-roboto';
+import { ApolloProvider } from "@apollo/client";
+import { useApollo } from "../lib/apolloClient";
 
-function Application({ Component, pageProps }) {
-  return <Component {...pageProps} />
+export default function App({ Component, pageProps }) {
+	const apolloClient = useApollo(pageProps.initialApolloState);
+
+	return (
+		<ApolloProvider client={apolloClient}>
+			<div style={{ margin: "20px" }}>
+				<Component {...pageProps} />
+			</div>
+		</ApolloProvider>
+	);
 }
-
-export default Application

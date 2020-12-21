@@ -4,14 +4,15 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "start:lambda": "netlify-lambda serve lambda",
     "build": "next build",
-    "build:lambda": "netlify-lambda build src/lambda",
     "postbuild": "next-on-netlify",
     "start": "next start",
     "export": "next export"
   },
   "dependencies": {
+    "@apollo/client": "^3.3.6",
+    "apollo-server-lambda": "^2.19.0",
+    "graphql": "^15.4.0",
     "netlify-lambda": "^2.0.2",
     "next": "10.0.1",
     "next-on-netlify": "^2.6.3",
