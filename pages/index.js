@@ -28,17 +28,18 @@ const IndexPage = () => {
 	};
 
 	return (
-		<React.Fragment>
+		<div>
 			{loggedIn ? (
 				<div>
 					You are logged in!
+					{user && <>Welcome {user?.user_metadata.full_name}!</>}
 					<br />
 					<button onClick={logout}>Log out here.</button>
 				</div>
 			) : (
 				<button onClick={login}>Log in here.</button>
 			)}
-		</React.Fragment>
+		</div>
 	);
 };
 
