@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import Header from "../components/Header";
 import netlifyAuth from "../lib/netlifyAuth";
 
 const IndexPage = () => {
@@ -29,15 +30,19 @@ const IndexPage = () => {
 
 	return (
 		<div>
+			<Header
+				loggedIn={loggedIn}
+				loginHandler={login}
+				logoutHandler={logout}
+			/>
 			{loggedIn ? (
 				<div>
-					You are logged in!
-					{user && <>Welcome {user?.user_metadata.full_name}!</>}
-					<br />
-					<button onClick={logout}>Log out here.</button>
+					Redirect to worlds page
 				</div>
 			) : (
-				<button onClick={login}>Log in here.</button>
+				<div>
+					Landing page with CTAs for logging in
+				</div>
 			)}
 		</div>
 	);
