@@ -1,16 +1,9 @@
-// pages/index.js
-
-import PlayersList, {
-	ALL_CLUBS_QUERY,
-	ALL_COUNTRIES_QUERY,
-} from "components/PlayersList";
-import Link from "next/link";
+import { render } from "react-dom";
 
 const Worlds = () => {
 	return (
 		<div>
-			<h1 style={{ textAlign: "center" }}>EPL Players Directory</h1>
-			<PlayersList />
+			<h1 style={{ textAlign: "center" }}>Worlds</h1>
 		</div>
 	);
 };
