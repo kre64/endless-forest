@@ -5,6 +5,7 @@ import { useState } from "react";
 export const ALL_WORLDS_QUERY = gql`
 	query allWorlds {
 		worlds {
+			id
 			name
 		}
 	}
