@@ -1,4 +1,4 @@
-import axios from "axios";
+const axios = require("axios");
 import { gql, useQuery } from "@apollo/client";
 
 const { identity, user } = context.clientContext;
