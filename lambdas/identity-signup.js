@@ -4,12 +4,11 @@ exports.handler = async function (event, context) {
 	const INSERT_USER = gql`
 		mutation insert_single_users {
 			insert_users_one(
-				object: { $email: String!, $name: String!, $level: Int!, $inventory: String!, $xp: Int!}
+				object: { $email: String!, $name: String!, $level: Int!, $xp: Int!}
 			) {
 				email
 				name
 				level
-				inventory
 				xp
 			}
 		}
@@ -21,20 +20,15 @@ exports.handler = async function (event, context) {
 		},
 	});
 
-	const email = event.body.user.email;
-	const name = event.body.user.user_metadata.full_name;
+	const identityUser = event.body.user
+	console.log(identityUser);
 
-	console.log("event.body.user", event.body.user);
-	console.log("event.body.user.user_metadata", event.body.user.user_metadata);
 	const variables = {
-		email: email,
-		name: name,
+		email: "email",
+		name: "name",
 		level: 0,
-		inventory: "",
 		xp: 0,
 	};
-
-	console.log("email, name, variables", email, name, variables)
 
 	const data = await graphQLClient.request(INSERT_USER, variables);
 
