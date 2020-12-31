@@ -16,7 +16,7 @@ mutation insert_single_user {
 `;
 
 exports.handler = async function (event, context) {
-	useQuery(ALL_WORLDS_QUERY);
+	useQuery(INSERT_USER);
 
 	return {
 		statusCode: 200,
