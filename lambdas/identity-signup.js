@@ -20,6 +20,9 @@ exports.handler = async function (event, context) {
 		},
 	});
 
+	console.log(event.body)
+	console.log(event.body.user)
+
 	const variables = {
 		email: event.body.user.email,
 		name: event.body.user.user_metadata.full_name,
