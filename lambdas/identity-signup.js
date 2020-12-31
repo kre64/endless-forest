@@ -20,18 +20,10 @@ exports.handler = async function (event, context) {
 
 	client.request(INSERT_USER).then((data) => console.log(data));
 
-	const res = await axios.put("/user", {
-		data: {
-			level: 0,
-			inventory: "",
-			xp: 0,
-		},
-	});
-
 	return {
 		statusCode: 200,
 		body: JSON.stringify({
-			app_metadata: ["adventurer"],
+			app_metadata: ["adventurer"]
 		}),
 	};
 };
