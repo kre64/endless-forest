@@ -14,8 +14,6 @@ exports.handler = async function (event, context) {
 		}
 	`;
 
-	request(process.env.GQL_ENDPOINT, query).then((data) => console.log(data));
-
 	const client = new GraphQLClient(process.env.GQL_ENDPOINT, {
 		headers: { "x-hasura-admin-secret": process.env.GQL_AUTH_TOKEN },
 	});
