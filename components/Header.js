@@ -116,7 +116,6 @@ const Header = ({ loggedIn, loginHandler, logoutHandler }) => {
 				<Toolbar>
 					<IconButton
 						edge="start"
-						// className={classes.menuButton}
 						color="inherit"
 						aria-label="menu"
 						onClick={handleHomeMenu}
