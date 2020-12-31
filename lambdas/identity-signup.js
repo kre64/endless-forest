@@ -2,9 +2,9 @@ const { gql, GraphQLClient } = require("graphql-request");
 
 exports.handler = async function (event, context) {
 	const INSERT_USER = gql`
-		mutation insert_single_users {
+		mutation insert_single_users($email: String!, $name: String!, $level: Int!, $xp: Int!) {
 			insert_users_one(
-				object: { $email: String!, $name: String!, $level: Int!, $xp: Int!}
+				object: { email: $email, name: $name, level: $level, xp: $xp}
 			) {
 				email
 				name
@@ -20,6 +20,7 @@ exports.handler = async function (event, context) {
 		},
 	});
 
+	console.log(event)
 	const identityUser = event.body.user
 	console.log(identityUser);
 
