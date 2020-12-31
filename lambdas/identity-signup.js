@@ -1,20 +1,20 @@
 const axios = require("axios");
 const { gql, useQuery } = require("@apollo/client");
 
-const INSERT_USER = gql`
-	mutation insert_single_users {
-		insert_users_one(object: { level: 0, inventory: "1, 2, 3", xp: 0 }) {
-			level
-			inventory
-			xp
-		}
-	}
-`;
-
 exports.handler = async function (event, context) {
-	useQuery(INSERT_USER);
+	const INSERT_USER = gql`
+		mutation insert_single_users {
+			insert_users_one(
+				object: { level: 0, inventory: "1, 2, 3", xp: 0 }
+			) {
+				level
+				inventory
+				xp
+			}
+		}
+	`;
 
-	console.log(event, context)
+	useQuery(INSERT_USER);
 
 	const res = await axios.put("/user", {
 		data: {
