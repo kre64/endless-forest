@@ -21,7 +21,7 @@ exports.handler = async function (event, context) {
 	});
 
 	const data = await graphQLClient.request(INSERT_USER);
-	console.log(JSON.stringify(data, undefined, 2));
+	console.log(event)
 
 	return {
 		statusCode: 200,
