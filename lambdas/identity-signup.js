@@ -2,7 +2,7 @@ const axios = require("axios");
 const { request, gql, GraphQLClient } = require("graphql-request");
 
 exports.handler = async function (event, context) {
-	const mutation = gql`
+	const INSERT_USER = gql`
 		mutation insert_single_users {
 			insert_users_one(
 				object: { level: 0, inventory: "1, 2, 3", xp: 0 }
@@ -20,13 +20,13 @@ exports.handler = async function (event, context) {
 		},
 	});
 
-	const data = await graphQLClient.request(mutation, variables);
+	const data = await graphQLClient.request(INSERT_USER);
 	console.log(JSON.stringify(data, undefined, 2));
 
 	return {
 		statusCode: 200,
 		body: JSON.stringify({
-			app_metadata: ["adventurer"],
+			app_metadata: { roles: ["adventurer"] }
 		}),
 	};
 };
