@@ -23,13 +23,14 @@ exports.handler = async function (event, context) {
 	const data = await graphQLClient.request(INSERT_USER);
 	const {identity, user} = context.clientContext;
 	console.log(identity)
-	console.log(event)
-	console.log(event.body)
+
+	console.log(event.body.user)
 
 	return {
 		statusCode: 200,
 		body: JSON.stringify({
-			app_metadata: { roles: ["adventurer"] }
+			app_metadata: { roles: ["adventurer"] },
+			user_metadata: { level: 0}
 		}),
 	};
 };
