@@ -1,6 +1,5 @@
 const axios = require("axios");
-import { gql, useQuery } from "@apollo/client";
-
+const { gql, useQuery } = require("@apollo/client");
 const { identity, user } = context.clientContext;
 
 const INSERT_USER = gql`
