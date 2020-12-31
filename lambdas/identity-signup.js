@@ -1,5 +1,5 @@
 const axios = require("axios");
-const { request, gql } = require("graphql-request");
+const { request, gql, GraphQLClient } = require("graphql-request");
 
 exports.handler = async function (event, context) {
 	const INSERT_USER = gql`
