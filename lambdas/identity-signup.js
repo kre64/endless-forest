@@ -21,6 +21,9 @@ exports.handler = async function (event, context) {
 	});
 
 	const data = await graphQLClient.request(INSERT_USER);
+	const {identity, user} = context.clientContext;
+	console.log(identity)
+	console.log(user)
 	console.log(event)
 
 	return {
