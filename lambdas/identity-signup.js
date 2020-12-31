@@ -21,7 +21,7 @@ exports.handler = async function (event, context) {
 	return {
 		statusCode: 200,
 		body: JSON.stringify({
-			app_metadata: {
+			user_metadata: {
 				level: 0,
 				items: {},
 				xp: 0,
